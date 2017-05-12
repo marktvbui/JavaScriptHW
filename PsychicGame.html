@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Psychic Game</title>
+  </head>
+  <body>
+
+      <h1 class="text-center"><strong>Psychic Game</strong></h1>
+      <p>Guess what letter I'm guessing: </p>
+      <div class id="results">
+        <div class id="win">
+        </div>
+        <div class id="loss">
+        </div>
+        <div class id="guessesLeft:">
+        </div>
+        <div class id="guessesSoFar:"
+      </div>
+
+
+  <script type="text/javascript">
+    var wins = 0;
+    var losses = 0;
+    var guessCounter = 10;
+    var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var winDiv = document.getElementById("win");
+    var lossDiv = document.getElementById("loss");
+    var guessesLeft = document.getElementById("guessesLeft");
+    var guessesSoFar = document.getElementById("guessesSoFar");
+
+    document.onkeyup = function(event) {
+      var userHand = event.key;
+      // random letter generator, but i'm allowing only r, p, and s to be part of the mix
+      var computerHand = letters[Math.floor(Math.random() * letters.length)];
+      // these are the win/lost/tie conditions
+    // debugger - pauses code to look and see
+    if (userHand === computerHand) {
+        wins ++;
+        // console.log('tie was triggered ' + ties);
+      }
+      else if (userHand != computerHand) {
+        losses ++;
+      }
+
+        winDiv.textContent = "Wins: " + wins;
+        lossDiv.textContent = "Losses: " + losses;
+        guessesLeftDiv.textContent = "Guesses Left: " + guessCounter;
+
+      // console.log("wins: " + wins);
+      // console.log("losses: " + losses);
+      // console.log("ties: " + ties);
+      // alert("player plays: " + userHand + " vs " + "computer plays: " + computerHand);
+
+
+      // showResults.textContent = "Wins: " + wins + lineBreak;
+      // showResults.textContent += "Losses: " + losses;
+      // showResults.textContent += "Ties: " + ties;
+      }
+
+
+  </script>
+  </body>
+</html>
